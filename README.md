@@ -16,6 +16,113 @@ So the basic idea behind this project was to make use of the stuff most of tech 
 
 3. The next step is to create an app in Xcode. After we createt a new project we add a podfile to be able to open the `.xcworkspace` file.
 
+```swift
+
+import UIKit
+import CocoaMQTT
+
+
+class ViewController: UIViewController {
+    
+   //Istantiate CocoaMQTT as mqttClient
+    let mqttClient = CocoaMQTT(clientID: "Device", host: "192.168.1.13", port: 1883)
+    
+  
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+
+    @IBAction func ledToggle(_ sender: UISwitch) {
+        
+        if sender.isOn{
+            mqttClient.publish("LED is:", withString: "On")
+            print ("LED is on.")
+        }
+        else {
+            mqttClient.publish("LED is:", withString: "Off")
+            print ("LED is off.")
+            }
+        }
+    
+    @IBAction func connectButton(_ sender: UIButton) {
+        if (mqttClient.connect()){
+            print ("Connection succesful!")
+        }
+        else {
+            print ("Connection failed!")
+        }
+        }
+    @IBAction func disconnectButton(_ sender: UIButton) {
+       if mqttClient.connect() == true{
+           mqttClient.disconnect()
+           print ("Disconnected!")
+        }
+        else {
+           print ("Device was not connected!")
+        }
+     
+    }
+}
+
+```
+
+PYTHON
+
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import paho.mqtt.client as mqtt
+import RPi.GPIO as gpio
+
+def gpioSetup():
+#set pin numbering ti Broadcom scheme
+    gpio.setmode(gpio.BCM)
+
+#set GPIO21 (pin 40) as an output pin
+    gpio.setup(21, gpio.OUT)
+ 
+#execute when a connection has been established to the MQTT server
+def connectionStatus (client, userdata, flags, rc):
+#subscribe client to a topic
+    mqttClient.subscribe("rpi/gpio")
+
+#execute when a message has been received from the MQTT server
+def messageDecoder(client, userdata, msg):
+    message = msg.payload.decode(encoding='UTF-8')
+    if message == "on":
+      gpio.output(21, gpio.HIGH)
+      print("LED is ON!")
+    elif message == "off":
+      gpio.output(21, gpio.LOW)
+      print("LED is OFF!")
+    else:
+      print("Unknown message!")
+
+#set up RPI GPIO pins
+gpioSetup()
+
+#set client name
+clientName = "Device"
+
+#set MQTT server adress
+serverAddress = "192.168.0.12"
+
+#instantiate Eclipse Paho as mqttClient
+mqttClient = mqtt.Client(clientName)
+
+#set calling functions  to mqttClient
+mqttClient.on_connect = connectionStatus
+mqttClient.on_message = messageDecoder
+
+#connect client to server
+mqttClient.connect(serverAddress)
+
+#monitor client activity forever
+mqttClient.loop_forever()
+
+```
 
 ![ezgif-7-38a182911e](https://user-images.githubusercontent.com/54951169/150238291-1e1f3738-4700-4f3e-bd4d-aca86de60332.gif)
 
