@@ -35,7 +35,7 @@ gpioSetup()
 clientName = "Device"
 
 #set MQTT server adress
-serverAddress = "192.168.0.12"
+serverAddress = "192.168.1.12"
 
 #instantiate Eclipse Paho as mqttClient
 mqttClient = mqtt.Client(clientName)
