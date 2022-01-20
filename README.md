@@ -107,7 +107,7 @@ def messageDecoder(client, userdata, msg):
 gpioSetup()
 
 #set client name
-clientName = "Device"
+clientName = "iOS Device"
 
 #set MQTT server adress
 serverAddress = "192.168.1.12"
