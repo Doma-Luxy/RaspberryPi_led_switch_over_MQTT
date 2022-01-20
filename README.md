@@ -9,7 +9,7 @@ A Swift app able to control a LED, connected to GPIO pins on a Raspberry Pi usin
 To better understand the implementation on the MQTT protocol I used this book: [MQTT Essentials - A Lightweight IoT Protocol](https://books.apple.com/us/book/mqtt-essentials-a-lightweight-iot-protocol/id1198410878)
 
 ## About this project
-So the basic idea behind this project was to make use of the stuff most of tech geeks have lying around at home. In this case it was a Raspberry Pi 3, an SD card, a power brick, a breadboard, some wires and one or more LED diods. The concept is simple create an app which can comunicate with the Raspberry Pi and instruct it to trigger the GPIO pin to turn the LED on or off.
+So the basic idea behind this project was to make use of the stuff most of tech geeks have lying around at home. In this case it was a Raspberry Pi 3, an SD card, a power brick, a breadboard, some wires and one or more LED diods. The concept is simple create an app which can communicate with the Raspberry Pi and instruct it to trigger the GPIO pin to turn the LED on or off.
 
 ## Walkthrough from setting the environment on the Raspberry Pi to writing the app in Swift
 1. Firstly we need to setup the environment we will be working in. In this case it is Raspbian Bullseye. We flash it to the SD card and it is ready to boot. After we configured the OS we can install some packages needed to complete this project.
