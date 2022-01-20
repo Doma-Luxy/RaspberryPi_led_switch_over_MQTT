@@ -18,7 +18,7 @@ So the basic idea behind this project was to make use of the stuff most of tech 
 
 ![snipp](https://user-images.githubusercontent.com/54951169/150240486-bdf48621-ed3c-403d-8956-255df23b689e.png)
 
-3. The next step is to create an app in Xcode. After we created a new project we add a podfile to the folder through the terminal, to be able to open the `.xcworkspace` file. In the "Storyboard" we created the frontend layout of the app and assigned what the actions schould do. In this case the "UISwitch" is turning the LED on and of and the "Connect" and "Disconnect" buttons are initating and terminating the connection to the MQTT server.
+3. The next step is to create an app in Xcode. After we created a new project we add a podfile to the folder through the terminal, to be able to open the `.xcworkspace` file. In the "Storyboard" we created the frontend layout of the app and assigned what the actions schould do. In this case the "ledToggle" is turning the LED on and of and the "Connect" and "Disconnect" buttons are initating and terminating the connection to the MQTT server.
 
 ```swift
 import UIKit
