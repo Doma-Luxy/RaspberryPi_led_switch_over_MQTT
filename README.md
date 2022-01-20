@@ -1,8 +1,12 @@
 # RaspberryPi controller of a LED using the MQTT protocol
 A Swift app able to control a LED, connected to GPIO pins on a Raspberry Pi using a MQTT protocol
 
-## About Swift
-Swift is a fantastic way to write software, whether it’s for phones, desktops, servers, or anything else that runs code. It’s a safe, fast, and interactive programming language that combines the best in modern language thinking with wisdom from the wider Apple engineering culture and the diverse contributions from its open-source community. The compiler is optimized for performance and the language is optimized for development, without compromising on either.
+## About Swift & MQTT
+*Swift* is a fantastic way to write software, whether it’s for phones, desktops, servers, or anything else that runs code. It’s a safe, fast, and interactive programming language that combines the best in modern language thinking with wisdom from the wider Apple engineering culture and the diverse contributions from its open-source community. The compiler is optimized for performance and the language is optimized for development, without compromising on either.
+
+*MQTT* is an OASIS standard messaging protocol for the Internet of Things (IoT). It is designed as an extremely lightweight publish/subscribe messaging transport that is ideal for connecting remote devices with a small code footprint and minimal network bandwidth. MQTT today is used in a wide variety of industries, such as automotive, manufacturing, telecommunications, oil and gas, etc.
+
+To better understand the implementation on the MQTT protocol I used this book: [MQTT Essentials - A Lightweight IoT Protocol](https://books.apple.com/us/book/mqtt-essentials-a-lightweight-iot-protocol/id1198410878)
 
 ## About this project
 So the basic idea behind this project was to make use of the stuff most of tech geeks have lying around at home. In this case it was a Raspberry Pi 3, an SD card, a power brick, a breadboard, some wires and one or more LED diods. The concept is simple create an app which can comunicate with the Raspberry Pi and instruct it to trigger the GPIO pin to turn the LED on or off.
